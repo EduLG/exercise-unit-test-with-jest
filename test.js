@@ -1,11 +1,23 @@
-// Import the function sum from the app.js file
-const { sum } = require('./app.js');
+test("One euro should be 1.07 dollars", function() {
 
-// Start your first test
-test('adds 14 + 9 to equal 23', () => {
-    // Inside the test we call our sum function with 2 numbers
-    let total = sum(14, 9);
+    const { fromEuroToDollar } = require('./app.js');
+    expect(fromEuroToDollar(3.5)).toBeCloseTo(3.745);
 
-    // We expect the sum of those 2 numbers to be 23
-    expect(total).toBe(23);
 });
+
+test("One dollar should be 146.26 YEN", function(){
+
+    const { fromDollarToYen } = require('./app.js');
+    expect(fromDollarToYen(1)).toBeCloseTo(146.26);
+
+});
+
+test("One Yen to be 0.0055 GBP", function(){
+
+    const { fromYenToPound } = require('./app.js');
+    expect(fromYenToPound(1)).toBeCloseTo(0.0055);
+
+});
+
+
+

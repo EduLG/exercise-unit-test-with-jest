@@ -1,7 +1,19 @@
-const sum = (a,b) => {
-    return a + b;
+let oneEuroIs = {
+    "JPY": 156.5,
+    "USD": 1.07,
+    "GBP": 0.87,
+};
+
+function fromEuroToDollar(euros) {
+    return euros * oneEuroIs["USD"];
 }
 
-console.log(sum(7,3));
+function fromDollarToYen(dollars) {
+    return (dollars / oneEuroIs["USD"]) * oneEuroIs["JPY"];
+}
 
-module.exports = {sum};
+function fromYenToPound(yen) {
+    return (yen / oneEuroIs["JPY"]) * oneEuroIs["GBP"];
+}
+
+module.exports = { fromEuroToDollar, fromDollarToYen, fromYenToPound };
